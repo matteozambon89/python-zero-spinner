@@ -23,7 +23,7 @@ import sys
 import threading
 import time
 from itertools import cycle
-from typing import TextIO
+from typing import Iterator, TextIO
 
 # Check if Unicode is supported
 try:
@@ -54,7 +54,7 @@ class Colors:
         'bright_cyan',
         'bright_white',
     ]
-    _cycle_rainbow: cycle[str] = cycle([
+    _cycle_rainbow: Iterator[str] = cycle([
         'red',
         'green',
         'yellow',
@@ -63,7 +63,7 @@ class Colors:
         'cyan',
         'white',
     ])
-    _cycle_rainbow_bright: cycle[str] = cycle([
+    _cycle_rainbow_bright: Iterator[str] = cycle([
         'bright_red',
         'bright_green',
         'bright_yellow',
@@ -72,7 +72,7 @@ class Colors:
         'bright_cyan',
         'bright_white',
     ])
-    _cycle_rainbow_rgb: cycle[str] = cycle([
+    _cycle_rainbow_rgb: Iterator[str] = cycle([
         'rgb(255,0,0)',
         'rgb(255,16,0)',
         'rgb(255,32,0)',
@@ -129,7 +129,7 @@ class Colors:
         'rgb(255,0,64)',
         'rgb(255,0,32)',
     ])
-    _cycle_unicorn: cycle[str] = cycle([
+    _cycle_unicorn: Iterator[str] = cycle([
         'magenta',
         'bright_magenta',
         'cyan',
@@ -137,7 +137,7 @@ class Colors:
         'white',
         'bright_white',
     ])
-    _cycle_unicorn_rgb: cycle[str] = cycle([
+    _cycle_unicorn_rgb: Iterator[str] = cycle([
         'rgb(255,105,180)',  # Hot Pink
         'rgb(255,20,147)',  # Deep Pink
         'rgb(219,112,147)',  # Pale Violet Red
@@ -388,7 +388,7 @@ class Spinner:
     _spinning: bool
 
     _spinner: SpinnerDefinition
-    _frames: cycle[str]
+    _frames: Iterator[str]
     _interval: int
     _steam: TextIO
     _disabled: bool
