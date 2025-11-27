@@ -327,6 +327,17 @@ class SpinnerDefinition:
     )
     interval: int = 80
 
+    def __init__(self, frames: list[str] | None = None, interval: int | None = None):
+        """Initialize a SpinnerDefinition.
+
+        Args:
+            frames (list[str]|None): The frames. If None it uses the SpinnerDefinition frames. Defaults to None.
+            interval (int|None): The interval in milliseconds between each frame. If None it uses the SpinnerDefinition interval. Defaults to None.
+        """  # noqa: E501
+
+        self.frames = frames or self.frames
+        self.interval = interval or self.interval
+
     @classmethod
     def from_dict(cls, data: dict):
         """Create a SpinnerDefinition from a dictionary.
@@ -534,6 +545,9 @@ class Spinner:
         Returns:
             Spinner: This spinner.
         """
+
+        if self._disabled:
+            return self
 
         if not self._stop:
             raise TypeError('_stop is not supposed to be None')
