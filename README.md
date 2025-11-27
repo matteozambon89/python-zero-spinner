@@ -25,10 +25,16 @@ Install from PyPI using pip:
 pip install zero-spinner
 ```
 
-Or using [uv](https://github.com/astral-sh/uv):
+Or using [uv](https://docs.astral.sh/uv/):
 
 ```bash
-uv pip install zero-spinner
+uv add zero-spinner
+```
+
+Or using [poetry](https://python-poetry.org)
+
+```bash
+poetry add zero-spinner
 ```
 
 ## Quick Start
@@ -226,6 +232,9 @@ custom_spinner = SpinnerDefinition()
 custom_spinner.frames = ['-', '=', '≡', '=', '-', ' ']
 custom_spinner.interval = 100  # ms
 
+# or simply
+# custom_spinner = SpinnerDefinition(['-', '=', '≡', '=', '-', ' '], 100)
+
 with spinner('Custom animation...', spinner=custom_spinner):
     # ... work ...
     pass
@@ -245,6 +254,8 @@ spin.succeed('All items processed!')
 ```
 
 ### Multiple Spinners
+
+> _WARNING_ Currently not working!
 
 ```python
 # Nested spinners
