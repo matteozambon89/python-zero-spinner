@@ -29,7 +29,7 @@ from typing import TextIO
 try:
     '⠋'.encode(sys.stdout.encoding)
     UNICODE_SUPPORTED = True
-except UnicodeEncodeError, AttributeError:
+except (UnicodeEncodeError, AttributeError):
     UNICODE_SUPPORTED = False
 
 
