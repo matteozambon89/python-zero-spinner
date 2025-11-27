@@ -1,0 +1,66 @@
+{
+  "name": "Python 3, UV, ZSH",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "runArgs": ["--name=python-project_devcontainer"],
+  "remoteUser": "worker",
+  "mounts": [
+    "source=${localEnv:HOME}/.ssh,target=/home/worker/.ssh,type=bind,consistency=cached",
+    "source=${localEnv:HOME}/.gitconfig,target=/home/worker/.gitconfig,type=bind,consistency=cached",
+    "source=${localEnv:HOME}/.config/starship.toml,target=/home/worker/.config/starship.toml,type=bind,consistency=cached",
+    "target=/workspace/project/.venv,type=volume"
+  ],
+  "postStartCommand": "sudo chown -R worker:worker /workspace/project/.venv && uv venv && uv sync --all-groups",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "zsh",
+        "terminal.integrated.profiles.linux": {
+          "bash": null,
+          "zsh": {
+            "path": "/bin/zsh"
+          }
+        },
+        "[json]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "[python]": {
+          "editor.defaultFormatter": "charliermarsh.ruff",
+          "editor.indentSize": 4
+        },
+        "editor.formatOnSave": true,
+        "python.analysis.autoFormatStrings": true,
+        "python.analysis.autoImportCompletions": true,
+        "python.analysis.autoSearchPaths": true,
+        "python.analysis.extraPaths": [".venv/lib/*/site-packages", ".venv/lib64/*/site-packages"],
+        "python.analysis.generateWithTypeAnnotation": true,
+        "python.analysis.inlayHints.pytestParameters": true,
+        "python.analysis.showOnlyDirectDependenciesInAutoImport": true,
+        "python.analysis.typeCheckingMode": "standard",
+        "python.terminal.activateEnvInCurrentTerminal": true,
+        "python.terminal.activateEnvironment": true,
+        "python.testing.autoTestDiscoverOnSaveEnabled": true,
+        "python.testing.autoTestDiscoverOnSavePattern": "**/*_test.py",
+        "python.testing.debugPort": 5678,
+        "python.testing.pytestEnabled": true
+      },
+      "extensions": [
+        "aaron-bond.better-comments",
+        "astral-sh.ty",
+        "charliermarsh.ruff",
+        "continue.continue",
+        "esbenp.prettier-vscode",
+        "minherz.copyright-inserter",
+        "redhat.vscode-yaml",
+        "rodolphebarbanneau.python-docstring-highlighter",
+        "skellock.just",
+        "streetsidesoftware.code-spell-checker",
+        "tamasfe.even-better-toml",
+        "the0807.uv-toolkit"
+      ]
+    }
+  },
+  "workspaceMount": "src=${localWorkspaceFolder},target=/workspace/project,type=bind",
+  "workspaceFolder": "/workspace/project"
+}

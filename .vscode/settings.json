@@ -1,0 +1,7 @@
+{
+  "copyrightInserter.license": "user",
+  "copyrightInserter.holder": "Yeeti",
+  "copyrightInserter.userText": "Copyright (C) ${year} ${holder}",
+  "copyrightInserter.useLineComment": true,
+  "cSpell.words": ["yeeti", "debugpy", "pytest", "pydocstyle", "isort", "fastapi", "venv"]
+}

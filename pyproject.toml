@@ -1,0 +1,81 @@
+[project]
+name = "project"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = []
+
+[dependency-groups]
+boilerplace-api = [
+    "fastapi[standard]>=0.120.4",
+]
+boilerplace-cli = [
+    "click>=8.3.0",
+]
+dev = [
+    "debugpy>=1.8.17",
+]
+lint = [
+    "ruff>=0.14.3",
+    "ty>=0.0.1a25",
+]
+test = [
+    "pytest>=8.4.2",
+    "pytest-cov>=7.0.0",
+]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src/"]
+include = ["yeeti"]
+
+[project.urls]
+Homepage = "https://github.com/matteozambon89/boilerplate-python-project"
+Changelog = "https://github.com/matteozambon89/boilerplate-python-project/releases"
+Issues = "https://github.com/matteozambon89/boilerplate-python-project/issues"
+CI = "https://github.com/matteozambon89/boilerplate-python-project/actions"
+
+[project.scripts]
+yeeti-cli = "yeeti.cli_module.main:cli"
+
+[tool.ruff]
+line-length = 120
+indent-width = 4
+include = ["*/src/**/*.py"]
+exclude = [".git", ".venv"]
+
+[tool.ruff.format]
+preview = true
+quote-style = "single"
+indent-style = "space"
+docstring-code-format = true
+
+[tool.ruff.lint]
+preview = true
+select = ["N", "D", "DOC", "E", "W", "F", "I", "B", "C4", "ARG", "COM", "SIM", "CPY"]
+extend-select = ["D417", "D416", "D400", "W291", "W292", "W293"]
+ignore = ["D202", "COM818", "D104"]
+pydocstyle.convention = "google"
+
+[tool.ruff.lint.isort]
+lines-after-imports = -1
+section-order = ["future", "standard-library", "test", "fastapi", "third-party", "first-party", "yeeti", "local-folder"]
+
+[tool.ruff.lint.isort.sections]
+fastapi = ["fastapi"]
+test = ["pytest"]
+yeeti = ["yeeti"]
+
+[tool.ruff.lint.flake8-copyright]
+author = "Yeeti"
+
+[tool.pytest.ini_options]
+console_output_style = "progress"
+python_files = ["*_test.py"]
+python_functions = "test_*"
+pythonpath = "src"
+addopts = "--cov=yeeti --cov-report html"
