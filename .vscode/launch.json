@@ -11,14 +11,6 @@
       "program": "${file}",
       "console": "integratedTerminal",
       "args": "${command:pickArgs}"
-    },
-    {
-      "name": "Python CLI Debugger",
-      "type": "debugpy",
-      "request": "launch",
-      "program": "./src/yeeti/cli_module/main.py",
-      "console": "integratedTerminal",
-      "args": "${command:pickArgs}"
     }
   ]
 }

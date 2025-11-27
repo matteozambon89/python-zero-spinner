@@ -1,9 +1,9 @@
 {
-  "name": "Python 3, UV, ZSH",
+  "name": "Zero Spinner Dev Container",
   "build": {
     "dockerfile": "Dockerfile"
   },
-  "runArgs": ["--name=python-project_devcontainer"],
+  "runArgs": ["--name=python-zero-spinner_devcontainer"],
   "remoteUser": "worker",
   "mounts": [
     "source=${localEnv:HOME}/.ssh,target=/home/worker/.ssh,type=bind,consistency=cached",

@@ -1,18 +1,12 @@
 [project]
-name = "project"
+name = "zero-spinner"
 version = "0.1.0"
-description = "Add your description here"
+description = "A zero dependency spinner"
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = []
 
 [dependency-groups]
-boilerplace-api = [
-    "fastapi[standard]>=0.120.4",
-]
-boilerplace-cli = [
-    "click>=8.3.0",
-]
 dev = [
     "debugpy>=1.8.17",
 ]
@@ -21,6 +15,7 @@ lint = [
     "ty>=0.0.1a25",
 ]
 test = [
+    "click>=8.3.1",
     "pytest>=8.4.2",
     "pytest-cov>=7.0.0",
 ]
@@ -30,17 +25,15 @@ requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools.packages.find]
-where = ["src/"]
-include = ["yeeti"]
+where = ["src"]
+include = ["yeeti*"]
+exclude = ["yeeti.examples*"]
 
 [project.urls]
-Homepage = "https://github.com/matteozambon89/boilerplate-python-project"
-Changelog = "https://github.com/matteozambon89/boilerplate-python-project/releases"
-Issues = "https://github.com/matteozambon89/boilerplate-python-project/issues"
-CI = "https://github.com/matteozambon89/boilerplate-python-project/actions"
-
-[project.scripts]
-yeeti-cli = "yeeti.cli_module.main:cli"
+Homepage = "https://github.com/matteozambon89/zero-spinner"
+Changelog = "https://github.com/matteozambon89/zero-spinner/releases"
+Issues = "https://github.com/matteozambon89/zero-spinner/issues"
+CI = "https://github.com/matteozambon89/zero-spinner/actions"
 
 [tool.ruff]
 line-length = 120
@@ -63,10 +56,9 @@ pydocstyle.convention = "google"
 
 [tool.ruff.lint.isort]
 lines-after-imports = -1
-section-order = ["future", "standard-library", "test", "fastapi", "third-party", "first-party", "yeeti", "local-folder"]
+section-order = ["future", "standard-library", "test", "third-party", "first-party", "yeeti", "local-folder"]
 
 [tool.ruff.lint.isort.sections]
-fastapi = ["fastapi"]
 test = ["pytest"]
 yeeti = ["yeeti"]
 
