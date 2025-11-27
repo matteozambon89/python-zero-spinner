@@ -337,6 +337,7 @@ class TestSpinner:
         assert 'Loading' in stream.getvalue()
         assert spin._spinning is False
 
+    @patch.dict(os.environ, {}, clear=True)
     def test_start_and_stop(self):
         """Test starting and stopping the spinner."""
         stream = StringIO()
@@ -356,6 +357,7 @@ class TestSpinner:
 
             assert spin._spinning is False
 
+    @patch.dict(os.environ, {}, clear=True)
     def test_start_with_text_parameter(self):
         """Test starting the spinner with text parameter."""
         stream = StringIO()
@@ -365,6 +367,7 @@ class TestSpinner:
 
         assert spin.text == 'Updated'
 
+    @patch.dict(os.environ, {}, clear=True)
     def test_start_already_spinning(self):
         """Test starting a spinner that's already spinning."""
         stream = StringIO()
@@ -380,6 +383,7 @@ class TestSpinner:
 
             spin.stop()
 
+    @patch.dict(os.environ, {}, clear=True)
     def test_format(self):
         """Test the _format method."""
         stream = StringIO()
@@ -400,6 +404,7 @@ class TestSpinner:
         assert '[' in result
         assert ']' in result
 
+    @patch.dict(os.environ, {}, clear=True)
     def test_end(self):
         """Test the end method."""
         stream = StringIO()
@@ -414,6 +419,7 @@ class TestSpinner:
             output = stream.getvalue()
             assert 'Complete' in output
 
+    @patch.dict(os.environ, {}, clear=True)
     def test_succeed(self):
         """Test the succeed method."""
         stream = StringIO()
@@ -428,6 +434,7 @@ class TestSpinner:
             output = stream.getvalue()
             assert 'Success!' in output
 
+    @patch.dict(os.environ, {}, clear=True)
     def test_succeed_default_text(self):
         """Test succeed method with default text."""
         stream = StringIO()
@@ -442,6 +449,7 @@ class TestSpinner:
             output = stream.getvalue()
             assert 'Processing' in output
 
+    @patch.dict(os.environ, {}, clear=True)
     def test_fail(self):
         """Test the fail method."""
         stream = StringIO()
@@ -456,6 +464,7 @@ class TestSpinner:
             output = stream.getvalue()
             assert 'Failed!' in output
 
+    @patch.dict(os.environ, {}, clear=True)
     def test_fail_default_text(self):
         """Test fail method with default text."""
         stream = StringIO()
@@ -470,6 +479,7 @@ class TestSpinner:
             output = stream.getvalue()
             assert 'Processing' in output
 
+    @patch.dict(os.environ, {}, clear=True)
     def test_warn(self):
         """Test the warn method."""
         stream = StringIO()
@@ -484,6 +494,7 @@ class TestSpinner:
             output = stream.getvalue()
             assert 'Warning!' in output
 
+    @patch.dict(os.environ, {}, clear=True)
     def test_warn_default_text(self):
         """Test warn method with default text."""
         stream = StringIO()
@@ -498,6 +509,7 @@ class TestSpinner:
             output = stream.getvalue()
             assert 'Processing' in output
 
+    @patch.dict(os.environ, {}, clear=True)
     def test_info(self):
         """Test the info method."""
         stream = StringIO()
@@ -512,6 +524,7 @@ class TestSpinner:
             output = stream.getvalue()
             assert 'Info!' in output
 
+    @patch.dict(os.environ, {}, clear=True)
     def test_info_default_text(self):
         """Test info method with default text."""
         stream = StringIO()
@@ -526,6 +539,7 @@ class TestSpinner:
             output = stream.getvalue()
             assert 'Processing' in output
 
+    @patch.dict(os.environ, {}, clear=True)
     def test_context_manager_success(self):
         """Test using spinner as context manager with success."""
         stream = StringIO()
@@ -539,6 +553,7 @@ class TestSpinner:
             output = stream.getvalue()
             assert 'Loading' in output
 
+    @patch.dict(os.environ, {}, clear=True)
     def test_context_manager_failure(self):
         """Test using spinner as context manager with failure."""  # noqa: DOC501
         stream = StringIO()
@@ -556,6 +571,7 @@ class TestSpinner:
             output = stream.getvalue()
             assert 'Loading' in output
 
+    @patch.dict(os.environ, {}, clear=True)
     def test_stop_raises_type_error_if_not_initialized(self):
         """Test that stop raises TypeError if _stop is None."""
         stream = StringIO()
@@ -569,6 +585,7 @@ class TestSpinner:
         with pytest.raises(TypeError, match='_stop is not supposed to be None'):
             spin.stop()
 
+    @patch.dict(os.environ, {}, clear=True)
     def test_stop_raises_type_error_if_thread_none(self):
         """Test that stop raises TypeError if _thread is None."""
         stream = StringIO()
@@ -584,6 +601,7 @@ class TestSpinner:
             with pytest.raises(TypeError, match='_thread is not supposed to be None'):
                 spin.stop()
 
+    @patch.dict(os.environ, {}, clear=True)
     def test_animate_thread_functionality(self):
         """Test that the animation thread works correctly."""
         stream = StringIO()
@@ -644,6 +662,7 @@ class TestSpinner:
 
         assert spin._interval == 50
 
+    @patch.dict(os.environ, {}, clear=True)
     def test_non_tty_stream(self):
         """Test spinner with non-TTY stream gets disabled."""
         stream = StringIO()
@@ -703,6 +722,7 @@ class TestSpinnerFactory:
 class TestIntegration:
     """Integration tests for the spinner."""
 
+    @patch.dict(os.environ, {}, clear=True)
     def test_full_lifecycle(self):
         """Test the full lifecycle of a spinner."""
         stream = StringIO()
@@ -719,6 +739,7 @@ class TestIntegration:
             output = stream.getvalue()
             assert 'Data loaded successfully' in output
 
+    @patch.dict(os.environ, {}, clear=True)
     def test_multiple_spinners(self):
         """Test using multiple spinners."""
         stream1 = StringIO()
@@ -739,6 +760,7 @@ class TestIntegration:
             assert 'Task 1' in stream1.getvalue()
             assert 'Task 2' in stream2.getvalue()
 
+    @patch.dict(os.environ, {}, clear=True)
     def test_changing_text_while_spinning(self):
         """Test changing text while spinner is running."""
         stream = StringIO()
@@ -764,6 +786,7 @@ class TestIntegration:
 class TestEdgeCases:
     """Test edge cases and error handling."""
 
+    @patch.dict(os.environ, {}, clear=True)
     def test_empty_text(self):
         """Test spinner with empty text."""
         stream = StringIO()
@@ -775,6 +798,7 @@ class TestEdgeCases:
         # Should not raise an error
         assert True
 
+    @patch.dict(os.environ, {}, clear=True)
     def test_special_characters_in_text(self):
         """Test spinner with special characters in text."""
         stream = StringIO()
@@ -786,6 +810,7 @@ class TestEdgeCases:
         output = stream.getvalue()
         assert 'Loading' in output
 
+    @patch.dict(os.environ, {}, clear=True)
     def test_very_long_text(self):
         """Test spinner with very long text."""
         stream = StringIO()
@@ -817,6 +842,7 @@ class TestEdgeCases:
         spin.color = 'blue'
         assert spin.color == 'blue'
 
+    @patch.dict(os.environ, {}, clear=True)
     def test_rapid_start_stop_cycles(self):
         """Test rapid start/stop cycles."""
         stream = StringIO()
