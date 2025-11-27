@@ -3,7 +3,7 @@ name = "zero-spinner"
 version = "0.1.0"
 description = "A zero dependency spinner"
 readme = "README.md"
-requires-python = ">=3.14"
+requires-python = ">=3.12, <4"
 dependencies = []
 
 [dependency-groups]
@@ -38,7 +38,7 @@ CI = "https://github.com/matteozambon89/zero-spinner/actions"
 [tool.ruff]
 line-length = 120
 indent-width = 4
-include = ["*/src/**/*.py"]
+include = ["src/**/*.py"]
 exclude = [".git", ".venv"]
 
 [tool.ruff.format]
