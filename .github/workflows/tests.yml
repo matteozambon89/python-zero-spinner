@@ -1,17 +1,13 @@
 name: CI
 
 on:
-  push:
-    branches:
-      - main
-    tags:
-      - '*'
+  workflow_call: true
   pull_request:
     branches:
       - main
 
 jobs:
-  ci:
+  tests:
     runs-on: ubuntu-latest
     strategy:
       matrix:
