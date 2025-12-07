@@ -4,6 +4,17 @@ version = "0.1.0"
 description = "A zero dependency spinner"
 readme = "README.md"
 requires-python = ">=3.11, <4"
+license-files = ["LICENSE"]
+classifiers = [
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+]
 dependencies = []
 
 [dependency-groups]
@@ -30,10 +41,10 @@ include = ["yeeti*"]
 exclude = ["yeeti.examples*"]
 
 [project.urls]
-Homepage = "https://github.com/matteozambon89/zero-spinner"
-Changelog = "https://github.com/matteozambon89/zero-spinner/releases"
-Issues = "https://github.com/matteozambon89/zero-spinner/issues"
-CI = "https://github.com/matteozambon89/zero-spinner/actions"
+Homepage = "https://github.com/matteozambon89/python-zero-spinner"
+Changelog = "https://github.com/matteozambon89/python-zero-spinner/releases"
+Issues = "https://github.com/matteozambon89/python-zero-spinner/issues"
+CI = "https://github.com/matteozambon89/python-zero-spinner/actions"
 
 [tool.ruff]
 line-length = 120
