@@ -12,6 +12,9 @@ wheels/
 # Pytest
 .pytest_cache
 
+# Ruff
+.ruff_cache
+
 # Coverage.py
 .coverage
 htmlcov

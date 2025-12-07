@@ -2,6 +2,8 @@
 
 A minimal, dependency-free spinner for Python CLI applications with rich customization options.
 
+[![Tests](https://github.com/matteozambon89/python-zero-spinner/actions/workflows/tests.yml/badge.svg)](https://github.com/matteozambon89/python-zero-spinner/actions/workflows/tests.yml)
+[![PyPI Downloads](https://img.shields.io/pypi/dm/zero-spinner.svg)](https://pypi.org/project/zero-spinner/)
 [![PyPI version](https://badge.fury.io/py/zero-spinner.svg)](https://badge.fury.io/py/zero-spinner)
 [![Python Version](https://img.shields.io/pypi/pyversions/zero-spinner)](https://pypi.org/project/zero-spinner/)
 [![License](https://img.shields.io/pypi/l/zero-spinner)](LICENSE)

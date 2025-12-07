@@ -1,0 +1,37 @@
+name: 🚀 Feature Request
+description: Suggest an idea for this project
+labels: ['enhancement', 'needs-triage']
+body:
+  - type: input
+    id: version
+    attributes:
+      label: Package version
+      description: Run `python -c "import zero_spinner; print(zero_spinner.__version__)"`
+      placeholder: 'e.g. 0.1.0'
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Is your feature request related to a problem?
+      description: Please describe the problem motivating this feature.
+      placeholder: "I'd like to do X, but currently I have to Y..."
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: Describe the solution
+      description: What would you like to happen? Any design docs or specifications?
+      placeholder: 'Add a --spinner-type CLI flag that...'
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: What alternatives have you considered?
+      placeholder: 'Could use spinner package, but want zero deps'
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Use case, benchmarks, screenshots, etc.
