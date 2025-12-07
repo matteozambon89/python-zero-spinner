@@ -1,0 +1,49 @@
+name: 🐛 Bug Report
+description: Report bugs and errors
+labels: ['bug', 'needs-triage']
+body:
+  - type: input
+    id: version
+    attributes:
+      label: Package version
+      description: Run `python -c "import zero_spinner; print(zero_spinner.__version__)"`
+      placeholder: 'e.g. 0.1.0'
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      placeholder: 'OS: macOS 15, Python: 3.12.2, uv: 0.4.0'
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: How do we trigger this bug?
+      placeholder: |
+        1. First step...
+        2. Second step...
+        3. ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: What should happen?
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: What actually happens?
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Error logs / traceback
+      render: shell

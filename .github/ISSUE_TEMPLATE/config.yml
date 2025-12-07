@@ -1,0 +1,16 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Questions ❓
+    url: https://github.com/matteozambon89/python-zero-spinner/discussions
+    about: Ask questions or share ideas in Discussions
+issue_templates:
+  - name: 🐛 Bug Report
+    description: File a bug or unexpected behavior
+    title: 🐛 [BUG]
+    labels: ['bug', 'needs-triage']
+    body: ./ISSUE_TEMPLATE/bug_report.yml
+  - name: 🚀 Feature Request
+    description: Suggest a new feature or enhancement
+    title: 🚀 [FEATURE]
+    labels: ['enhancement', 'needs-triage']
+    body: ./ISSUE_TEMPLATE/feature_request.yml
